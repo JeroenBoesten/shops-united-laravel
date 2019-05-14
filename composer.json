@@ -1,0 +1,54 @@
+{
+    "name": "jeroenonline/shops-united-laravel",
+    "description": "Laravel wrapper for the ShopsUnited API",
+    "keywords": [
+        "jeroenonline",
+        "shops-united-laravel"
+    ],
+    "homepage": "https://github.com/jeroenonline/shops-united-laravel",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Jeroen Boesten",
+            "email": "info@jeroenboesten.nl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "5.8.*"
+    },
+    "require-dev": {
+        "orchestra/testbench": "3.8.*",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "JeroenOnline\\ShopsUnitedLaravel\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "JeroenOnline\\ShopsUnitedLaravel\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "JeroenOnline\\ShopsUnitedLaravel\\ShopsUnitedLaravelServiceProvider"
+            ],
+            "aliases": {
+                "ShopsUnitedLaravel": "JeroenOnline\\ShopsUnitedLaravel\\ShopsUnitedLaravelFacade"
+            }
+        }
+    }
+}
