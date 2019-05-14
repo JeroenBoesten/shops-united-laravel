@@ -5,7 +5,7 @@
 [![Quality Score](https://img.shields.io/scrutinizer/g/jeroenonline/shops-united-laravel.svg?style=flat-square)](https://scrutinizer-ci.com/g/jeroenonline/shops-united-laravel)
 [![Total Downloads](https://img.shields.io/packagist/dt/jeroenonline/shops-united-laravel.svg?style=flat-square)](https://packagist.org/packages/jeroenonline/shops-united-laravel)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+This Laravel package functions as a wrapper for the Shops United API.
 
 ## Installation
 
@@ -47,7 +47,3 @@ If you discover any security related issues, please email info@jeroenboesten.nl 
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).

@@ -4,9 +4,6 @@ namespace JeroenOnline\ShopsUnitedLaravel;
 
 use Illuminate\Support\Facades\Facade;
 
-/**
- * @see \JeroenOnline\ShopsUnitedLaravel\Skeleton\SkeletonClass
- */
 class ShopsUnitedLaravelFacade extends Facade
 {
     /**
