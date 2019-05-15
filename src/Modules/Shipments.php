@@ -8,7 +8,7 @@ use JeroenOnline\ShopsUnitedLaravel\ShopsUnitedLaravel;
 class Shipments extends ShopsUnitedLaravel
 {
     /**
-     * Returns a Array with shipment type objects
+     * Returns a Array with shipment type objects.
      * @return mixed
      */
     public function types()
@@ -17,7 +17,7 @@ class Shipments extends ShopsUnitedLaravel
             ->addQuery([
                 'GebruikerId' => config('shops-united-laravel.account-id'),
                 'Datum' => date('Y-m-d H:i:s'),
-                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id') . date('Y-m-d H:i:s'), config('shops-united-laravel.api-key')),
+                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id').date('Y-m-d H:i:s'), config('shops-united-laravel.api-key')),
             ])
             ->setGetUrl('type.php')
             ->call();
@@ -26,13 +26,13 @@ class Shipments extends ShopsUnitedLaravel
     }
 
     /**
-     * Get the 20 nearest locations for the user to use the 'Pakje Gemak' service
+     * Get the 20 nearest locations for the user to use the 'Pakje Gemak' service.
      * @param $zipCode
      * @param $houseNumber
      * @param string $carrier default 'PostNL' or 'DHL'
      * @return mixed
      */
-    public function locations($zipCode, $houseNumber, $carrier = "PostNL")
+    public function locations($zipCode, $houseNumber, $carrier = 'PostNL')
     {
         $data = $this
             ->addQuery([
@@ -41,7 +41,7 @@ class Shipments extends ShopsUnitedLaravel
                 'Carrier' => $carrier,
                 'Postcode' => $zipCode,
                 'Nummer' => $houseNumber,
-                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id') . date('Y-m-d H:i:s') . $zipCode . $houseNumber, config('shops-united-laravel.api-key')),
+                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id').date('Y-m-d H:i:s').$zipCode.$houseNumber, config('shops-united-laravel.api-key')),
             ])
             ->setGetUrl('uitreiklocatie.php')
             ->call();
@@ -50,7 +50,7 @@ class Shipments extends ShopsUnitedLaravel
     }
 
     /**
-     * Create a new shipment to see the additional optional params visit https://login.shops-united.nl/api/docs.php#zending
+     * Create a new shipment to see the additional optional params visit https://login.shops-united.nl/api/docs.php#zending.
      *
      * @param string $carrier
      * @param string $type
@@ -82,7 +82,7 @@ class Shipments extends ShopsUnitedLaravel
                 'Plaats' => $addresseeCity,
                 'AantalPakketten' => $packagesAmount,
                 'Gewicht' => $weight,
-                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id') . date('Y-m-d H:i:s') . Arr::get($optionalParams, 'PostcodeAfzender', '') . $addresseeZipCode, config('shops-united-laravel.api-key')),
+                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id').date('Y-m-d H:i:s').Arr::get($optionalParams, 'PostcodeAfzender', '').$addresseeZipCode, config('shops-united-laravel.api-key')),
             ], $optionalParams))
             ->setPostUrl('zending.php')
             ->call();
@@ -96,7 +96,7 @@ class Shipments extends ShopsUnitedLaravel
             ->addQuery([
                 'GebruikerId' => config('shops-united-laravel.account-id'),
                 'Datum' => date('Y-m-d H:i:s'),
-                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id') . date('Y-m-d H:i:s'), config('shops-united-laravel.api-key')),
+                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id').date('Y-m-d H:i:s'), config('shops-united-laravel.api-key')),
 
                 'ZendingId' => $shipmentId,
                 'MinDatetime' => $minDateTime,
@@ -118,10 +118,10 @@ class Shipments extends ShopsUnitedLaravel
                 'GebruikerId' => config('shops-united-laravel.account-id'),
                 'ZendingId' => $shipmentId,
                 'PrintPdf' => $printPdf,
-                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id') . $shipmentId, config('shops-united-laravel.api-key')),
+                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id').$shipmentId, config('shops-united-laravel.api-key')),
             ])
             ->setGetUrl('label.php');
-        
-        return $data->callableUrl . $data->query;
+
+        return $data->callableUrl.$data->query;
     }
 }

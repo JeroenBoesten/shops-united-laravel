@@ -7,7 +7,7 @@ use JeroenOnline\ShopsUnitedLaravel\ShopsUnitedLaravel;
 class Accounts extends ShopsUnitedLaravel
 {
     /**
-     * Check if the API key in the config is valid
+     * Check if the API key in the config is valid.
      * @return bool
      */
     public function validate() : bool
@@ -16,7 +16,7 @@ class Accounts extends ShopsUnitedLaravel
             ->setParams([
                 'GebruikerId' => config('shops-united-laravel.account-id'),
                 'Datum' => date('Y-m-d H:i:s'),
-                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id') . date('Y-m-d H:i:s'), config('shops-united-laravel.api-key')),
+                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id').date('Y-m-d H:i:s'), config('shops-united-laravel.api-key')),
             ])
             ->setPostUrl('validate_apikey.php')
             ->call();
@@ -25,7 +25,7 @@ class Accounts extends ShopsUnitedLaravel
     }
 
     /**
-     * Checks whether a account with the given email exists or not
+     * Checks whether a account with the given email exists or not.
      * @param string $email
      * @return bool
      */
@@ -35,7 +35,7 @@ class Accounts extends ShopsUnitedLaravel
             ->addQuery([
                 'GebruikerId' => config('shops-united-laravel.account-id'),
                 'Email' => $email,
-                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id') . $email, config('shops-united-laravel.api-key')),
+                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id').$email, config('shops-united-laravel.api-key')),
             ])
             ->setGetUrl('account_exists.php')
             ->call();
