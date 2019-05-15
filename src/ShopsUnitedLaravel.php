@@ -14,7 +14,7 @@ class ShopsUnitedLaravel
     protected $method = 'GET';
     protected $params = [];
 
-    function __construct()
+    public function __construct()
     {
         $this->client = new Client(['verify' => config('shops-united-laravel.verify-ssl')]);
 
@@ -33,7 +33,7 @@ class ShopsUnitedLaravel
 
     protected function call()
     {
-        $request = $this->client->request($this->method, $this->callableUrl . $this->query, [
+        $request = $this->client->request($this->method, $this->callableUrl.$this->query, [
             'form_params' => $this->params,
         ]);
 
@@ -45,7 +45,7 @@ class ShopsUnitedLaravel
     protected function setGetUrl($url = null)
     {
         $this->method = 'GET';
-        $this->callableUrl = $this->baseUrl . $url;
+        $this->callableUrl = $this->baseUrl.$url;
 
         return $this;
     }
@@ -53,26 +53,30 @@ class ShopsUnitedLaravel
     public function setPostUrl($url)
     {
         $this->method = 'POST';
-        $this->callableUrl = $this->baseUrl . $url;
+        $this->callableUrl = $this->baseUrl.$url;
+
         return $this;
     }
 
     public function setDeleteUrl($url)
     {
         $this->method = 'DELETE';
-        $this->callableUrl = $this->baseUrl . $url;
+        $this->callableUrl = $this->baseUrl.$url;
+
         return $this;
     }
 
     protected function addQuery(array $array)
     {
-        $this->query = '?' . http_build_query($array);
+        $this->query = '?'.http_build_query($array);
+
         return $this;
     }
 
     protected function setParams(array $array)
     {
         $this->params = $array;
+
         return $this;
     }
 }
