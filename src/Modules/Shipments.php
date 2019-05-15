@@ -2,6 +2,7 @@
 
 namespace JeroenOnline\ShopsUnitedLaravel\Modules;
 
+use Illuminate\Support\Arr;
 use JeroenOnline\ShopsUnitedLaravel\ShopsUnitedLaravel;
 
 class Shipments extends ShopsUnitedLaravel
@@ -43,6 +44,47 @@ class Shipments extends ShopsUnitedLaravel
                 'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id') . date('Y-m-d H:i:s') . $zipCode . $houseNumber, config('shops-united-laravel.api-key')),
             ])
             ->setGetUrl('uitreiklocatie.php')
+            ->call();
+
+        return json_decode(json_encode($data));
+    }
+
+    /**
+     * Create a new shipment to see the additional optional params visit https://login.shops-united.nl/api/docs.php#zending
+     *
+     * @param string $carrier
+     * @param string $type
+     * @param string $reference
+     * @param string $addresseeName
+     * @param string $addresseeStreet
+     * @param string $addresseeHouseNumber
+     * @param string $addresseeZipCode
+     * @param string $addresseeCity
+     * @param int $packagesAmount
+     * @param int $weight
+     * @param array $optionalParams
+     * @return mixed
+     */
+    public function create(string $carrier, string $type, string $reference, string $addresseeName, string $addresseeStreet, string $addresseeHouseNumber,
+                           string $addresseeZipCode, string $addresseeCity, int $packagesAmount, int $weight, array $optionalParams = [])
+    {
+        $data = $this
+            ->setParams(array_merge([
+                'GebruikerId' => config('shops-united-laravel.account-id'),
+                'Datum' => date('Y-m-d H:i:s'),
+                'Carrier' => $carrier,
+                'Type' => $type,
+                'Referentie' => $reference,
+                'Naam' => $addresseeName,
+                'Straat' => $addresseeStreet,
+                'Nummer' => $addresseeHouseNumber,
+                'Postcode' => $addresseeZipCode,
+                'Plaats' => $addresseeCity,
+                'AantalPakketten' => $packagesAmount,
+                'Gewicht' => $weight,
+                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id') . date('Y-m-d H:i:s') . Arr::get($optionalParams, 'PostcodeAfzender', '') . $addresseeZipCode, config('shops-united-laravel.api-key')),
+            ], $optionalParams))
+            ->setPostUrl('zending.php')
             ->call();
 
         return json_decode(json_encode($data));
