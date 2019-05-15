@@ -1,8 +1,8 @@
-# Very short description of the package
+# Laravel ShopUnited Wrapper
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/jeroenonline/shops-united-laravel.svg?style=flat-square)](https://packagist.org/packages/jeroenonline/shops-united-laravel)
-[![Build Status](https://img.shields.io/travis/jeroenonline/shops-united-laravel/master.svg?style=flat-square)](https://travis-ci.org/jeroenonline/shops-united-laravel)
-[![Quality Score](https://img.shields.io/scrutinizer/g/JeroenBoesten/shops-united-laravel.svg?style=flat-square)](https://scrutinizer-ci.com/g/jeroenonline/shops-united-laravel)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/JeroenBoesten/shops-united-laravel/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/JeroenBoesten/shops-united-laravel/?branch=master)
+[![StyleCI](https://github.styleci.io/repos/186664966/shield?branch=master)](https://github.styleci.io/repos/186664966)
 [![Total Downloads](https://img.shields.io/packagist/dt/jeroenonline/shops-united-laravel.svg?style=flat-square)](https://packagist.org/packages/jeroenonline/shops-united-laravel)
 
 This Laravel package functions as a wrapper for the Shops United API.
