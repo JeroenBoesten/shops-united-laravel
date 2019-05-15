@@ -110,4 +110,18 @@ class Shipments extends ShopsUnitedLaravel
 
         return json_decode(json_encode($data));
     }
+
+    public function labelUrl(int $shipmentId, bool $printPdf = false)
+    {
+        $data = $this
+            ->addQuery([
+                'GebruikerId' => config('shops-united-laravel.account-id'),
+                'ZendingId' => $shipmentId,
+                'PrintPdf' => $printPdf,
+                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id') . $shipmentId, config('shops-united-laravel.api-key')),
+            ])
+            ->setGetUrl('label.php');
+        
+        return $data->callableUrl . $data->query;
+    }
 }
