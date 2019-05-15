@@ -89,4 +89,25 @@ class Shipments extends ShopsUnitedLaravel
 
         return json_decode(json_encode($data));
     }
+
+    public function list(string $orderBy = 'desc', int $shipmentId = null, string $minDateTime = null, string $maxDateTime = null, string $status = null, int $limit = 50)
+    {
+        $data = $this
+            ->addQuery([
+                'GebruikerId' => config('shops-united-laravel.account-id'),
+                'Datum' => date('Y-m-d H:i:s'),
+                'HmacSha256' => hash_hmac('sha256', config('shops-united-laravel.account-id') . date('Y-m-d H:i:s'), config('shops-united-laravel.api-key')),
+
+                'ZendingId' => $shipmentId,
+                'MinDatetime' => $minDateTime,
+                'MaxDatetime' => $maxDateTime,
+                'Status' => $status,
+                'Ordering' => $orderBy,
+                'Limit' => $limit,
+            ])
+            ->setGetUrl('zendingen.php')
+            ->call();
+
+        return json_decode(json_encode($data));
+    }
 }
