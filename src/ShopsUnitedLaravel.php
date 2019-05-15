@@ -16,7 +16,7 @@ class ShopsUnitedLaravel
 
     function __construct()
     {
-        $this->client = new Client;
+        $this->client = new Client(['verify' => config('shops-united-laravel.verify-ssl')]);
 
         $this->baseUrl = 'https://login.shops-united.nl/api/';
     }
