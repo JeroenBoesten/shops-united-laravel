@@ -1,9 +1,9 @@
 <?php
 
-namespace JeroenOnline\ShopsUnitedLaravel\Modules;
+namespace JeroenBoesten\ShopsUnitedLaravel\Modules;
 
 use Illuminate\Support\Arr;
-use JeroenOnline\ShopsUnitedLaravel\ShopsUnitedLaravel;
+use JeroenBoesten\ShopsUnitedLaravel\ShopsUnitedLaravel;
 
 class Shipments extends ShopsUnitedLaravel
 {

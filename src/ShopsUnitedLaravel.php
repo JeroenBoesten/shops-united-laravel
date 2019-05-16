@@ -1,10 +1,10 @@
 <?php
 
-namespace JeroenOnline\ShopsUnitedLaravel;
+namespace JeroenBoesten\ShopsUnitedLaravel;
 
 use GuzzleHttp\Client;
-use JeroenOnline\ShopsUnitedLaravel\Modules\Accounts;
-use JeroenOnline\ShopsUnitedLaravel\Modules\Shipments;
+use JeroenBoesten\ShopsUnitedLaravel\Modules\Accounts;
+use JeroenBoesten\ShopsUnitedLaravel\Modules\Shipments;
 
 class ShopsUnitedLaravel
 {

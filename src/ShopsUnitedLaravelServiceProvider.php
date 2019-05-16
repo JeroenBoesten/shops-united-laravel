@@ -1,6 +1,6 @@
 <?php
 
-namespace JeroenOnline\ShopsUnitedLaravel;
+namespace JeroenBoesten\ShopsUnitedLaravel;
 
 use Illuminate\Support\ServiceProvider;
 

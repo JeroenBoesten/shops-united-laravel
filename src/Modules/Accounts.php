@@ -1,8 +1,8 @@
 <?php
 
-namespace JeroenOnline\ShopsUnitedLaravel\Modules;
+namespace JeroenBoesten\ShopsUnitedLaravel\Modules;
 
-use JeroenOnline\ShopsUnitedLaravel\ShopsUnitedLaravel;
+use JeroenBoesten\ShopsUnitedLaravel\ShopsUnitedLaravel;
 
 class Accounts extends ShopsUnitedLaravel
 {

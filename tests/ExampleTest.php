@@ -1,6 +1,6 @@
 <?php
 
-namespace JeroenOnline\ShopsUnitedLaravel\Tests;
+namespace JeroenBoesten\ShopsUnitedLaravel\Tests;
 
 use PHPUnit\Framework\TestCase;
 
