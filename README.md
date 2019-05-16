@@ -1,6 +1,6 @@
 # Laravel ShopUnited Wrapper
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/jeroenboesten/shops-united-laravel.svg?style=flat-square)](https://packagist.org/packages/jeroenboesten/shops-united-laravel)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/JeroenBoesten/shops-united-laravel.svg?style=flat-square)](https://packagist.org/packages/jeroenboesten/shops-united-laravel)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/JeroenBoesten/shops-united-laravel/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/JeroenBoesten/shops-united-laravel/?branch=master)
 [![StyleCI](https://github.styleci.io/repos/186664966/shield?branch=master)](https://github.styleci.io/repos/186664966)
 [![Total Downloads](https://img.shields.io/packagist/dt/jeroenboesten/shops-united-laravel.svg?style=flat-square)](https://packagist.org/packages/jeroenboesten/shops-united-laravel)
