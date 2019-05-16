@@ -19,7 +19,7 @@ You can install the package via composer:
 composer require jeroenboesten/shops-united-laravel
 ```
 
-####Environment variables 
+#### Environment variables 
 Add the UserId and API Key to your environment variables.
 ```text
 SHOP_UNITED_ACCOUNT_ID=
