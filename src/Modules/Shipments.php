@@ -137,10 +137,10 @@ class Shipments extends ShopsUnitedLaravel
             ['cookies' => $jar]
         );
 
-        if($downloadPath === 'storage_dir') {
+        if ($downloadPath === 'storage_dir') {
             $downloadPath = storage_path();
         }
 
-        return file_put_contents ("{$downloadPath}/{$prefix}{$shipmentId}.pdf", $response->getBody()->getContents());
+        return file_put_contents("{$downloadPath}/{$prefix}{$shipmentId}.pdf", $response->getBody()->getContents());
     }
 }
