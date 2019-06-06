@@ -124,4 +124,23 @@ class Shipments extends ShopsUnitedLaravel
 
         return $data->callableUrl.$data->query;
     }
+
+    public function downloadLabelPdf(int $shipmentId, string $downloadPath = 'storage_dir', string $prefix = 'label_')
+    {
+        $labelUrl = $this->labelUrl($shipmentId, true);
+
+        $jar = new \GuzzleHttp\Cookie\CookieJar();
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request(
+            'POST',
+            $labelUrl,
+            ['cookies' => $jar]
+        );
+
+        if($downloadPath === 'storage_dir') {
+            $downloadPath = storage_path();
+        }
+
+        return file_put_contents ("{$downloadPath}/{$prefix}{$shipmentId}.pdf", $response->getBody()->getContents());
+    }
 }
