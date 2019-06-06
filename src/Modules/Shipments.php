@@ -141,6 +141,10 @@ class Shipments extends ShopsUnitedLaravel
             $downloadPath = storage_path();
         }
 
-        return file_put_contents ("{$downloadPath}/{$prefix}{$shipmentId}.pdf", $response->getBody()->getContents());
+        $filePath = "{$downloadPath}/{$prefix}{$shipmentId}.pdf";
+
+        file_put_contents ($filePath, $response->getBody()->getContents());
+
+        return $filePath;
     }
 }
