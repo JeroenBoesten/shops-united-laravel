@@ -137,7 +137,7 @@ class Shipments extends ShopsUnitedLaravel
             ['cookies' => $jar]
         );
 
-        if($downloadPath === 'storage_dir') {
+        if ($downloadPath === 'storage_dir') {
             $downloadPath = storage_path();
         }
 
