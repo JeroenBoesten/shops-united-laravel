@@ -90,7 +90,7 @@ class Shipments extends ShopsUnitedLaravel
         return json_decode(json_encode($data));
     }
 
-    public function list(string $orderBy = 'desc', int $shipmentId = null, string $minDateTime = null, string $maxDateTime = null, string $status = null, int $limit = 50)
+    public function list(int $shipmentId = null, string $orderBy = 'desc', string $minDateTime = null, string $maxDateTime = null, string $status = null, int $limit = 50)
     {
         $data = $this
             ->addQuery([
