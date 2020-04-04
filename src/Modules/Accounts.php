@@ -10,7 +10,7 @@ class Accounts extends ShopsUnitedLaravel
      * Check if the API key in the config is valid.
      * @return bool
      */
-    public function validate() : bool
+    public function validate(): bool
     {
         $data = $this
             ->setParams([
@@ -29,7 +29,7 @@ class Accounts extends ShopsUnitedLaravel
      * @param string $email
      * @return bool
      */
-    public function exists($email = null) : bool
+    public function exists($email = null): bool
     {
         $data = $this
             ->addQuery([
